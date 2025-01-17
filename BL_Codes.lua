@@ -1,4 +1,6 @@
-local RedeemCodes = game:GetService("ReplicatedStorage").Packages.Knit.Services.CodesService.RF.Redeem
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local CodeServices = ReplicatedStorage.Packages.Knit.Services:WaitForChild("CodesService")
+local Redeem = CodeServices.RF:WaitForChild("Redeem")
 
 local Codes = {
     "THANKYOU",
@@ -41,7 +43,7 @@ local function redeemCodes()
     for _, code in ipairs(Codes) do
         print("Attempting to redeem code:", code)
         local success, response = pcall(function()
-            return RedeemCodes:InvokeServer(code)
+            return Redeem:InvokeServer(code)
         end)
         if success then
             if response then
