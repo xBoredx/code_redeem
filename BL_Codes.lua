@@ -1,6 +1,8 @@
 local RedeemCodes = game:GetService("ReplicatedStorage").Packages.Knit.Services.CodesService.RF.Redeem
 
 local Codes = {
+    "THANKYOU",
+    "TRAILER20K",
     "THANKSGIVING",
     "20KLIKES",
     "40KLIKES",
