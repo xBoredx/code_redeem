@@ -3,6 +3,8 @@ local CodeServices = ReplicatedStorage.Packages.Knit.Services:WaitForChild("Code
 local Redeem = CodeServices.RF:WaitForChild("Redeem")
 
 local Codes = {
+    "YUKIMIYA",
+    "20KLIKESPT2",
     "THANKYOU",
     "TRAILER20K",
     "THANKSGIVING",
