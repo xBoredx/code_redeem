@@ -1,7 +1,7 @@
-local codetable = {"WORLD_TRADING_UPDATE", "SNOWMAN_SHUTDOWN", "SANTA_SHUTDOWN", "WINTER_SHUTDOWN", "WINTER_UPD", "AWESOME_SHUTDOWN"}
+local codetable = {"WORLD_TRADING_UPDATE", "SNOWMAN_SHUTDOWN", "I_LOVE_SHUTDOWNS", "WINTER_UPD"}
 
 for _, code in ipairs(codetable) do
-    task.wait(2)
+    task.wait(3.75)
     print("Redeeming code:", code)
     
     local success, result = pcall(function()
