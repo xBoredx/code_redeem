@@ -1,4 +1,4 @@
-local codetable = {"WORLD_TRADING_UPDATE", "SNOWMAN_SHUTDOWN", "I_LOVE_SHUTDOWNS", "WINTER_UPD", "LUNAR_FOLLOWS"}
+local codetable = {"WORLD_TRADING_UPDATE", "SNOWMAN_SHUTDOWN", "I_LOVE_SHUTDOWNS", "WINTER_UPD", "LUNAR_FOLLOWS", "LUNAR_NEW_YEAR", "LUNAR_SNAKE"}
 
 for _, code in ipairs(codetable) do
     task.wait(3.75)
