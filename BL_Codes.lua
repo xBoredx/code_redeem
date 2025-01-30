@@ -1,6 +1,15 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local CodeServices = ReplicatedStorage.Packages.Knit.Services:WaitForChild("CodesService")
-local Redeem = CodeServices.RF:WaitForChild("Redeem")
+local Knit = ReplicatedStorage:WaitForChild("Packages"):WaitForChild("Knit")
+local Services = Knit:WaitForChild("Services")
+local CodesService = Services:WaitForChild("CodesService")
+
+local RF = CodesService:WaitForChild("RF")
+local Redeem = RF:WaitForChild("Redeem")
+
+if not Redeem or not Redeem:IsA("RemoteFunction") then
+    warn("[ERROR] Redeem RemoteFunction is missing or invalid.")
+    return
+end
 
 local Codes = {
     "THANKYOU",
@@ -16,22 +25,24 @@ local Codes = {
 
 local function redeemCodes()
     for _, code in ipairs(Codes) do
-        print("Attempting to redeem code:", code)
+        print("[INFO] Attempting to redeem code:", code)
+
         local success, response = pcall(function()
             return Redeem:InvokeServer(code)
         end)
+
         if success then
             if response then
-                print("Successfully redeemed code:", code, "Response:", response)
+                print("[SUCCESS] Code:", code, "| Server Response:", response)
             else
-                print("Code:", code, "Response: No response or invalid.")
+                print("[FAILED] Code:", code, "| No response (already redeemed or invalid)")
             end
         else
-            warn("Failed to redeem code:", code, "Error:", tostring(response))
+            warn("[ERROR] Failed to redeem code:", code, "| Error:", tostring(response))
         end
-        wait(5)
+        task.wait(2)
     end
-    print("Finished redeeming codes.")
+    print("[INFO] Finished redeeming codes.")
 end
 
 redeemCodes()
